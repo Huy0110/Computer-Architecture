@@ -2,7 +2,9 @@
 
 # max => save in $a0
 # min => save in $a1
-
+.data
+m_max: .asciiz "max: "
+m_min: .asciiz "\nmin: "
 .text
 
 main:
@@ -58,7 +60,23 @@ change_min:
 	add 	$a1, $zero, $t0
 	j	pop
 	
-done:
+done:	
+	add $t6, $a0, $0
+	li $v0,4
+	la $a0, m_max
+	syscall
+        
+        li  $v0, 1
+        add $a0, $t6, $0
+        syscall
+        
+        add $t6, $a1, $0
+        li $v0,4
+	la $a0, m_min
+	syscall
+        add $a0, $t6, $0
+        li $v0,1
+        syscall
 	jr $ra
 	
 	
