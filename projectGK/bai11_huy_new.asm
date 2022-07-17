@@ -124,7 +124,7 @@ exit_while_name_1:					# ket thuc vong while
 	add $s0, $t0, $zero				# s0 luu do dai string
 
 #---Duyet tu cuoi chuoi len dau tim vi tri FINISH--------------------------------
-	addi $t0, $s0, -1  				# i= s - 1 (=strlen)
+	addi $t0, $s0, -1  				# i= s - 1 (=strlen-1)
 for1_name_1:
 	blt  $t0, $zero, exit_for1_name_1			# if i<0 => exit 
 	la $a1, string1					# load address string vao a1
